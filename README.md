@@ -1,16 +1,16 @@
 # calender_task
 
-A new Flutter project.
+This flutter project contains 3 calender page uis.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The first page is a Splash Page. Arrow button allows us to navigate to Home Page.
+The second is a Home Page.
+The third Page is an example day in the calendar.
 
-A few resources to get you started if this is your first Flutter project:
+The photos of the pages I coded are down below.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img width="238" alt="calender_page_1" src="https://github.com/zeynepbetulhos/calender_task/assets/124428758/34794e67-42b7-4a6f-8e0b-ba5eefde43f1">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="231" alt="calender_page_2" src="https://github.com/zeynepbetulhos/calender_task/assets/124428758/488c12c5-ad88-4fea-b503-f78b1834044d">
+
