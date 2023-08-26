@@ -1,6 +1,7 @@
+import 'package:calender_task/calender_page/calender_page.dart';
 import 'package:flutter/material.dart';
 
-Row buildTop() {
+Row buildTop(BuildContext context) {
   return Row(
     children: [
       const Align(
@@ -9,23 +10,22 @@ Row buildTop() {
           children: [
             Text(
               'Good',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40,),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35,),
             ),
             Text(
               'morning',
-              style: TextStyle(fontWeight: FontWeight.bold,
-                  fontSize: 40,
-                  color: Colors.grey),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35, color: Colors.grey),
             ),
           ],
         ),
       ),
-      const SizedBox(width: 90),
+      const Spacer(),
       ClipOval(
         child: Container(
           color: const Color(0xFFE0E0E0),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const CalenderPage()));
+            },
             icon: const Icon(
               Icons.calendar_today_outlined,
               size: 30,

@@ -65,15 +65,18 @@ class _ContainerWidgetState extends State<ContainerWidget> {
       height: 50,
       decoration: BoxDecoration(
         image: const DecorationImage(
-          image: AssetImage('assets/png/space_progress.jpeg'),
+          image: AssetImage('assets/jpeg/space_progress.jpeg'),
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const LinearProgressIndicator(
-        value: 0.8,
-        backgroundColor: Colors.transparent,
-        valueColor: AlwaysStoppedAnimation<Color>(Colors.transparent),
+      child: Transform.scale(
+        scaleX:-1,
+        child: const LinearProgressIndicator(
+          value: 0.2,
+          backgroundColor: Colors.transparent,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+        ),
       ),
     );
   }

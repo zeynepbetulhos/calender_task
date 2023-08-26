@@ -29,9 +29,14 @@ class SplashPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Manage     your',
+                    'Manage',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                  ),
+                  const Text(
+                    'your',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
                   ),
                   const SizedBox(height:10.0),
@@ -49,7 +54,7 @@ class SplashPage extends StatelessWidget {
                         'Get started',
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
                       ),
-                      const SizedBox(width: 120.0),
+                      const Spacer(),
                       ClipOval(
                         child: Container(
                           color: Colors.black,
@@ -73,14 +78,15 @@ class SplashPage extends StatelessWidget {
         );
   }
 
-  Container buildBackground() {
-    return Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/png/space.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-        );
+  SizedBox buildBackground() {
+    return SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: Image.asset(
+        'assets/png/space.png',
+        fit: BoxFit.cover,
+      ),
+    );
+
   }
 }
