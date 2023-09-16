@@ -23,11 +23,12 @@ class _OngoingToDoWidgetState extends State<OngoingToDoWidget> {
         SizedBox(
           height: 100,
           child: ListView.builder(
+            shrinkWrap: true,
             itemCount: getList().length,
             itemBuilder: (context, index) {
               return Row(
                 children: [
-                  buildCheckbox(),
+                  buildCheckbox(index),
                   const SizedBox(width: 10),
                   Align(
                     child: Column(
@@ -49,7 +50,7 @@ class _OngoingToDoWidgetState extends State<OngoingToDoWidget> {
     );
   }
 
-  Transform buildCheckbox() {
+  Transform buildCheckbox(int index) {
     return Transform.scale(
             scale: 2.0,
             child: Checkbox(
@@ -58,10 +59,10 @@ class _OngoingToDoWidgetState extends State<OngoingToDoWidget> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(7),
                 ),
-                value: _isItComplete,
+                value: _isItCompleteList[index],
                 onChanged: (value) {
                   setState((){
-                    _isItComplete = value;
+                    _isItCompleteList[index] = value!;
                   });
                 }),
           );
@@ -73,6 +74,8 @@ class _OngoingToDoWidgetState extends State<OngoingToDoWidget> {
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.grey),
     );
   }
+
+  late List<bool> _isItCompleteList = List.generate(getList().length, (_) => false);
 
   List<TaskModel> getList() {
     return [

@@ -3,7 +3,9 @@ import 'package:calender_task/calender_page/time_widget.dart';
 import 'package:flutter/material.dart';
 
 class ContainerWidget2 extends StatelessWidget {
-  const ContainerWidget2({super.key});
+  ContainerWidget2({super.key});
+
+  List<String> times=['10.00', '11.00','12.00','13.00','14.00','15.00','16.00','17.00',];
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class ContainerWidget2 extends StatelessWidget {
       height: 570,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               '3 meeting',
@@ -30,22 +32,23 @@ class ContainerWidget2 extends StatelessWidget {
             const SizedBox(height: 20),
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   flex: 1,
-                  child: Column(
-                    children: [
-                      TimeWidget(time: '10:00'),
-                      TimeWidget(time: '11:00'),
-                      TimeWidget(time: '12:00'),
-                      TimeWidget(time: '13:00'),
-                      TimeWidget(time: '14:00'),
-                      TimeWidget(time: '15:00'),
-                      TimeWidget(time: '16:00'),
-                      TimeWidget(time: '17:00'),
-                    ],
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: times.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Text(times[index],style: TextStyle(fontSize: 17),),
+                          SizedBox(height: 30),
+                        ],
+                      );
+                    },
                   ),
                 ),
-                const Spacer(),
+                Spacer(flex: 1),
                 Expanded(
                   flex: 6,
                   child: buildPlans(),

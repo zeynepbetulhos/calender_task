@@ -1,4 +1,3 @@
-import 'package:calender_task/calender_page/app_bar.dart';
 import 'package:calender_task/calender_page/container_widget.dart';
 import 'package:calender_task/calender_page/days_part.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +9,43 @@ class CalenderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: buildAppBar(context),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: ClipOval(
+            child: Container(
+              color: Colors.white,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+        ),
+        title: const Row(
+          children: [
+            Text(
+              'April 2023',
+              style: TextStyle(fontSize: 25),
+            ),
+            Icon(
+              Icons.expand_more,
+              size: 40,
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
           buildDays(),
-          const ContainerWidget2(),
+          ContainerWidget2(),
         ],
       ),
       floatingActionButton: buildFloatingActionButton(),

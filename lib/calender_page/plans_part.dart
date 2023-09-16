@@ -21,21 +21,23 @@ Column buildPlans() {
 Stack buildDailyStandUp() {
   return Stack(
     children:[
-      Container(
-        height: 50,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/png/pattern_2.png'),
-            fit: BoxFit.cover,
+      ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        child: Container(
+          height: 50,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/png/pattern_2.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-        ),
-        child: Transform.scale(
-          scaleX:-1,
-          child: const LinearProgressIndicator(
-            value: 0.2,
-            backgroundColor: Colors.transparent,
-            valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFE0E0E0)),
+          child: Transform.scale(
+            scaleX:-1,
+            child: const LinearProgressIndicator(
+              value: 0.2,
+              backgroundColor: Colors.transparent,
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFE0E0E0)),
+            ),
           ),
         ),
       ),
@@ -83,23 +85,32 @@ Container buildDesignMeeting() {
               const Spacer(),
               Row(
                 children: [
-                  const Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/jpeg/profile_photo_1.jpeg'),
+                  const Flexible(
+                    flex: 3,
+                    child: SizedBox(
+                      height: 40,
+                      width: double.infinity,
+                      child: Stack(
+                        //alignment: AlignmentDirectional.centerStart,
+                        children: [
+                          Positioned(
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundImage: AssetImage('assets/jpeg/profile_photo_1.jpeg'),
+                            ),
+                          ),
+                          Positioned(
+                            left: 20,
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundImage: AssetImage('assets/jpeg/profile_photo_2.jpeg'),
+                            ),
+                          ),
+                        ],
                       ),
-                      Positioned(
-                        left: 20,
-                        child: CircleAvatar(
-                          radius: 20,
-                          backgroundImage: AssetImage('assets/jpeg/profile_photo_2.jpeg'),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                  const Spacer(),
+                  const Spacer(flex: 5),
                   ClipOval(
                     child: Container(
                       width: 30,
